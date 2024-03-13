@@ -1,42 +1,65 @@
 #root {
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.container {
+  display: flex;
+  height: 120vh;
+  width: 100%;
+  background-color: #8f0f0f;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.image-container {
+  flex: 1; /* La mitad izquierda */
+  display: flex;
+  justify-content: center; /* Centra la imagen horizontalmente */
+  align-items: center; /* Centra la imagen verticalmente */
+  background-color: #807c7c; /* Color de fondo de la mitad izquierda */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.image {
+  max-width: 100%; /*Asegura que la imagen no supere el ancho del contenedor */
+  max-height: 100%; /* Asegura que la imagen no supere la altura del contenedor */
+  min-height: 100%;
 }
 
-.card {
-  padding: 2em;
+.my-card, .my-form{
+  flex: 1; /* La mitad derecha */
+  display: flex;
+  flex-direction: column; /* Cambiado a columna */
+  justify-content: center; /* Centra el formulario verticalmente */
+  align-items: center; /* Centra el formulario horizontalmente */
+  background-color: #3e0dc4; /* Color de fondo de la mitad derecha */
+  padding: 2rem;
 }
 
-.read-the-docs {
-  color: #888;
+.my-bodycard{
+  display: flex;
+  max-width: 100%;
+  max-height: 100%;
+  flex-direction: column;
+  justify-content: center; /* Centra el formulario verticalmente */
+  align-items: center; /* Centra el formulario horizontalmente */
+  background-color: #c878e7; /* Color de fondo de la mitad derecha */
+  padding: 2rem;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: row; /* Cambiado a fila */
+  height: 3vh;
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+}
+
+.nav-list{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }

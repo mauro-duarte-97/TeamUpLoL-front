@@ -1,42 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// import { useState } from 'react'
 import './App.css'
-import NavBar from './components/NavBar'
+import Footer from './components/Footer';
+import LoginForm from './components/LoginForm';
 import { ChakraProvider } from '@chakra-ui/react'
-import MainMenu from './components/MainMenu'
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <ChakraProvider>
       <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <br />
-        <br />
-        <MainMenu />
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
 
-      <NavBar />
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div className="container">
+          <div className="image-container" >
+            <img src='./AureWP4K.jpeg' alt="Portada Galio" className="image"/>
+          </div>
+
+        <div className='my-form'>
+          <LoginForm />
+        </div>
+
+      </div>
+      
+      <footer>
+        <Footer />
+      </footer>
     </>
     </ChakraProvider>
     
@@ -44,3 +32,5 @@ function App() {
 }
 
 export default App
+
+// link Galio : https://image-1.uhdpaper.com/wallpaper/mecha-galio-lol-skin-splash-art-4k-wallpaper-uhdpaper.com-684@1@l.jpg // ABS 'D:/Github/TeamUpLoL-front/teamUpLol/public/mecha-galio.jpg'
