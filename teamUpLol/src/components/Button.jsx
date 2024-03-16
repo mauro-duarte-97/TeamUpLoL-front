@@ -1,26 +1,69 @@
-function SubmitButton() {
-  const handleSubmit = () => {
-    // Aquí puedes agregar la lógica para manejar el envío del formulario
-    console.log('Formulario enviado');
-  };
+/* eslint-disable no-unused-vars */
+import React from 'react';
+import PropTypes from 'prop-types';
 
+Button.propTypes, SubmitButton.propTypes, RegisterButton.propTypes, ContinueButton.propTypes  = {
+  onClick: PropTypes.func, // Propiedad onClick de tipo función
+  children: PropTypes.node.isRequired, // Propiedad children de tipo nodo y requerida
+};
+
+
+// Componente Button genérico
+const Button = ({ onClick, children, ...props }) => {
   return (
-    <button
-      type="submit"
+    <button onClick={onClick}
       style={{
-        backgroundColor: '#8a2be2', // lila
-        color: 'white',
-        fontWeight: 'bold',
-        padding: '10px 20px',
-        borderRadius: '5px',
-        border: 'none',
-        cursor: 'pointer',
-      }}
-      onClick={handleSubmit}
-    >
-      CONTINUE
+      backgroundColor: '#8a2be2', // lila
+      color: 'white',
+      fontWeight: 'bold',
+      padding: '10px 20px',
+      borderRadius: '5px',
+      border: 'none',
+      cursor: 'pointer',
+    }}
+    {...props}>
+      {children}
     </button>
   );
-}
+};
 
-export default SubmitButton;
+// Componente SubmitButton
+const SubmitButton = ({ onClick, children, ...props }) => {
+  return (
+    <Button type="submit" onClick={onClick} {...props}>
+      {children}
+    </Button>
+  );
+};
+
+// Componente RegisterButton
+const RegisterButton = ({ onClick, children, ...props }) => {
+  return (
+    <Button onClick={onClick}
+    style={{
+      backgroundColor: '#8a2be2', // lila
+      color: 'white',
+      fontWeight: 'bold',
+      padding: '15px 30px', // Tamaño del botón (ajustar según necesidad)
+      borderRadius: '5px',
+      border: 'none',
+      cursor: 'pointer',
+    }}
+    {...props}
+    >
+      {children}
+    </Button>
+  );
+};
+
+// Componente ContinueButton
+const ContinueButton = ({ onClick, children, ...props }) => {
+  return (
+    <Button onClick={onClick} {...props}>
+      {children}
+    </Button>
+  );
+};
+
+export { Button, SubmitButton, RegisterButton, ContinueButton };
+

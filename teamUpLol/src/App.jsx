@@ -1,36 +1,38 @@
 // import { useState } from 'react'
 import './App.css'
 import Footer from './components/Footer';
-import LoginForm from './components/LoginForm';
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider } from '@chakra-ui/react';
+import MainRouter from './MainRouter';
+import { useState } from 'react';
 
+const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-function App() {
+    // Función para iniciar sesión
+    const login = () => {
+      // Aquí podrías realizar la lógica de autenticación
+      // Por simplicidad, asumimos que el inicio de sesión siempre es exitoso
+      setIsLoggedIn(true);
+    };
 
-  return (
-    <ChakraProvider>
+    // Función para cerrar sesión
+    const logout = () => {
+      setIsLoggedIn(false);
+    };
+
+    return (
       <>
-
-      <div className="container">
-          <div className="image-container" >
-            <img src='./AureWP4K.jpeg' alt="Portada Galio" className="image"/>
-          </div>
-
-        <div className='my-form'>
-          <LoginForm />
+      <ChakraProvider>
+        <div>
+        <MainRouter isLoggedIn={isLoggedIn} onLogin={login} onLogout={logout} />
         </div>
+      </ChakraProvider>
 
-      </div>
-      
-      <footer>
-        <Footer />
-      </footer>
-    </>
-    </ChakraProvider>
-    
-  )
-}
+      <Footer />
+      </>
+    );
+};
 
-export default App
+export default App;
 
 // link Galio : https://image-1.uhdpaper.com/wallpaper/mecha-galio-lol-skin-splash-art-4k-wallpaper-uhdpaper.com-684@1@l.jpg // ABS 'D:/Github/TeamUpLoL-front/teamUpLol/public/mecha-galio.jpg'
