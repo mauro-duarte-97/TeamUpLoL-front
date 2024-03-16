@@ -1,12 +1,5 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import PropTypes from 'prop-types';
-
-Button.propTypes, SubmitButton.propTypes, RegisterButton.propTypes, ContinueButton.propTypes  = {
-  onClick: PropTypes.func, // Propiedad onClick de tipo función
-  children: PropTypes.node.isRequired, // Propiedad children de tipo nodo y requerida
-};
-
 
 // Componente Button genérico
 const Button = ({ onClick, children, ...props }) => {
