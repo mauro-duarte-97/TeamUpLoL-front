@@ -3,6 +3,7 @@
   margin: 0 auto;
   text-align: center;
 }
+
 .container {
   display: flex;
   height: 120vh;
@@ -11,50 +12,62 @@
 }
 
 .image-container {
-  flex: 1; /* La mitad izquierda */
+  flex: 1;
+  /* La mitad izquierda */
   display: flex;
-  justify-content: center; /* Centra la imagen horizontalmente */
-  align-items: center; /* Centra la imagen verticalmente */
-  background-color: #807c7c; /* Color de fondo de la mitad izquierda */
+  justify-content: center;
+  /* Centra la imagen horizontalmente */
+  align-items: center;
+  /* Centra la imagen verticalmente */
+  background-color: #807c7c;
+  /* Color de fondo de la mitad izquierda */
 }
 
 .image {
-  max-width: 100%; /*Asegura que la imagen no supere el ancho del contenedor */
-  max-height: 100%; /* Asegura que la imagen no supere la altura del contenedor */
   min-height: 100%;
 }
 
-.my-card, .my-form{
-  flex: 1; /* La mitad derecha */
+.my-card,
+.my-form {
+  flex: 1;
+  /* La mitad derecha */
   display: flex;
-  flex-direction: column; /* Cambiado a columna */
-  justify-content: center; /* Centra el formulario verticalmente */
-  align-items: center; /* Centra el formulario horizontalmente */
-  background-color: #3e0dc4; /* Color de fondo de la mitad derecha */
+  flex-direction: column;
+  /* Cambiado a columna */
+  justify-content: center;
+  /* Centra el formulario verticalmente */
+  align-items: center;
+  /* Centra el formulario horizontalmente */
+  background-color: #3e0dc4;
+  /* Color de fondo de la mitad derecha */
   padding: 2rem;
 }
 
-.my-bodycard{
+.my-bodycard {
   display: flex;
   max-width: 100%;
   max-height: 100%;
   flex-direction: column;
-  justify-content: center; /* Centra el formulario verticalmente */
-  align-items: center; /* Centra el formulario horizontalmente */
-  background-color: #c878e7; /* Color de fondo de la mitad derecha */
+  justify-content: center;
+  /* Centra el formulario verticalmente */
+  align-items: center;
+  /* Centra el formulario horizontalmente */
+  background-color: #c878e7;
+  /* Color de fondo de la mitad derecha */
   padding: 2rem;
 }
 
 .footer-container {
   display: flex;
-  flex-direction: row; /* Cambiado a fila */
+  flex-direction: row;
+  /* Cambiado a fila */
   height: 3vh;
   background-color: #333;
   color: #fff;
   padding: 5px;
 }
 
-.nav-list{
+.nav-list {
   list-style: none;
   display: flex;
   flex-direction: row;

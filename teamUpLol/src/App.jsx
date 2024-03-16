@@ -1,34 +1,17 @@
-// import { useState } from 'react'
 import './App.css'
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 import { ChakraProvider } from '@chakra-ui/react';
-import MainRouter from './MainRouter';
-import { useState } from 'react';
+import MainRouter from './routers/mainrouter';
+import { RouterProvider } from 'react-router-dom';
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-    // Función para iniciar sesión
-    const login = () => {
-      // Aquí podrías realizar la lógica de autenticación
-      // Por simplicidad, asumimos que el inicio de sesión siempre es exitoso
-      setIsLoggedIn(true);
-    };
-
-    // Función para cerrar sesión
-    const logout = () => {
-      setIsLoggedIn(false);
-    };
 
     return (
       <>
       <ChakraProvider>
-        <div>
-        <MainRouter isLoggedIn={isLoggedIn} onLogin={login} onLogout={logout} />
-        </div>
+        <RouterProvider router={MainRouter} />
       </ChakraProvider>
-
-      <Footer />
+{/*  <Footer /> */}
       </>
     );
 };
