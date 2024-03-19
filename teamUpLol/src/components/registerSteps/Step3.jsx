@@ -1,6 +1,6 @@
 import { Box, Button, Text } from '@chakra-ui/react'
 
-export default function RegisterStep2({setCurrentStep}) {
+export default function Step2({setCurrentStep}) {
     const handleCLickGoBack = () => {
         setCurrentStep(1)
     }
