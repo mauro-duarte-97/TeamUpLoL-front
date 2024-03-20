@@ -1,4 +1,4 @@
-import { Box, Flex, FormControl, FormLabel, Input, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, FormControl, FormLabel, Input, Text } from '@chakra-ui/react'
 import React from 'react'
 import { SubmitButton } from '../Button'
 // eslint-disable-next-line no-unused-vars
@@ -45,57 +45,65 @@ export default function RegisterStep1() {
 
   return (// onSubmit={handleLogin}>
     <form> 
-        <Box mt='5vh'>
-            <Text color={'black'} fontSize='3xl'>Go Back</Text>
+        <Button mt={'2vh'} ml={'0'} justifySelf={'flex-start'}>← Go Back</Button>
+        <Flex mt='5vh' direction={'column'}>
+        
+            <Box>
+                
+                <Text color={'black'} fontSize='6xl'>Register</Text>
+                <Text color={'black'} fontSize='4xl'>Step 1 - Basic Information</Text>
+            </Box>
             
-            <Text color={'black'} fontSize='6xl'>Register</Text>
-            <Text color={'black'} fontSize='4xl'>Step 1 - Basic Information</Text>
-            <Flex mb='3vh' direction={'column'} mt='2vh' justifyContent={'space-between'} height={'13vh'}>
+
+            <Flex mb='3vh' direction={'column'} mt='2vh' justifyContent={'space-between'}>
 
             {/* NOMBRE USUARIO */}
             <FormControl>
                 <FormLabel color={'black'} >Nombre usuario</FormLabel>
-                <Input placeholder='Nico Garofalo' color={'black'} value={username} onChange={(e) => setUsername(e.target.value)}  type='text' required/><Input/>
+                <Input mb='3vh' placeholder='Nico Garofalo' color={'black'} value={username} onChange={(e) => setUsername(e.target.value)}  type='text' required/>
             </FormControl>
 
             {/*EMAIL*/}
             <FormControl>
                 <FormLabel color={'black'} >Email</FormLabel>
-                <Input placeholder='nico.garofalo@gmail.com' color={'black'} value={email} onChange={(e) => setEmail(e.target.value)}  type='email' required/><Input/>
+                <Input mb='3vh' placeholder='nico.garofalo@gmail.com' color={'black'} value={email} onChange={(e) => setEmail(e.target.value)}  type='email' required/>
             </FormControl>
 
             {/*EDAD*/}
             <FormControl>
                 <FormLabel color={'black'} >Edad usuario</FormLabel>
-                <Input placeholder='70' color={'black'} value={edad} onChange={(e) => setEdad(e.target.value)}  type='number' required/><Input/>
+                <Input mb='3vh' placeholder='70' color={'black'} value={edad} onChange={(e) => setEdad(e.target.value)}  type='number' required/>
             </FormControl>
 
             {/* CONTRASEÑA */}
             <FormControl>
                 <FormLabel color={'black'} >Contraseña</FormLabel>
-                <Input placeholder='MauroElMasGrande98' color={'black'} value={password} onChange={(e) => setPassword(e.target.value)}  type='password' required/><Input/>
+                <Input mb='3vh' placeholder='MauroElMasGrande98' color={'black'} value={password} onChange={(e) => setPassword(e.target.value)}  type='password' required/>
             </FormControl>
 
             {/* REPETIR CONTRASEÑA */}
             <FormControl>
                 <FormLabel color={'black'} >Repetir Contraseña</FormLabel>
-                <Input placeholder='MauroElMasGrande98' color={'black'} value={validPassword} onChange={(e) => setValidPassword(e.target.value)}  type='password' required/><Input/>
+                <Input mb='3vh' placeholder='MauroElMasGrande98' color={'black'} value={validPassword} onChange={(e) => setValidPassword(e.target.value)}  type='password' required/>
             </FormControl>
 
             {/* RIOT ID */}
             <FormControl>
                 <FormLabel color={'black'}>Riot ID</FormLabel>
-                <Input color={'black'} value={riotID} onChange={(e) => setRiotID(e.target.value)}  type='text' required/>  <Input/>
+                <Input mb='3vh' color={'black'} value={riotID} onChange={(e) => setRiotID(e.target.value)}  type='text' required/>
             </FormControl>
 
             </Flex>
+        
+
+        <Box>
+
+            <SubmitButton w='100%'>
+            <Text>Continue</Text>
+            </SubmitButton>
+
         </Box>
 
-        <Flex direction={'column'}  justifyContent={'space-between'} height={'7vh'}>
-
-        <SubmitButton w='100%'>
-          <Text>Continue</Text>
-        </SubmitButton>
         </Flex>
   </form>
   )

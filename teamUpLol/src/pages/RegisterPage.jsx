@@ -40,26 +40,45 @@ export default function RegisterPage() {
 
       <Flex>
 
-        <Flex flex="1" height="100vh" width="200vh" backgroundImage={'./Register2.jpg'} backgroundSize={'cover'} backgroundPosition={'cover'} justifyContent={'flex-start'}>
-
-
-            <Text color='white' fontWeight={'bold'} fontSize='5xl' mt={'2.5vh'} ml={'2.5vh'} p={'5vh'}>Información Basica </Text>
-            <br />
-            
-            <Text color='white' fontWeight={'bold'} fontSize='5xl' mt={'2.5vh'} ml={'2.5vh'}>División</Text>
-            
-            <br />
-            <Text color='white' fontWeight={'bold'} fontSize='5xl' mt={'2.5vh'} ml={'2.5vh'}>Lineas</Text>
-
-            <br />
-            <Text color='white' fontWeight={'bold'} fontSize='5xl' mt={'2.5vh'} ml={'2.5vh'}>Modo de juego</Text>
-
-            <br />
-            <Text color='white' fontWeight={'bold'} fontSize='5xl' mt={'2.5vh'} ml={'2.5vh'}>Tu presentacion (opcional)</Text>
-
+      <Flex
+        flex="1"
+        height="100vh"
+        width="200vh"
+        backgroundImage={'./Register2.jpg'}
+        backgroundSize={'cover'}
+        backgroundPosition={'cover'}
+        justifyContent={'flex-start'}
+        flexDirection="column">
+        
+        <Flex justifyContent={'flex-start'}>
+        <Text color='white' fontWeight={'bold'} fontSize='6xl' marginTop='2vh' marginLeft='1.5vh' padding='1.5vh' >
+          TeamUp LoL
+        </Text>
         </Flex>
+        
 
-        <Flex flex="1">
+        <Text color='white' fontWeight={'bold'} fontSize='5xl' marginTop='20vh' marginLeft='2.5vh' padding='2.5vh'>
+          Información Básica
+        </Text>
+
+        <Text color='white' fontWeight={'bold'} fontSize='5xl' marginTop='2.5vh' marginLeft='2.5vh'>
+          División
+        </Text>
+
+        <Text color='white' fontWeight={'bold'} fontSize='5xl' marginTop='2.5vh' marginLeft='2.5vh'>
+          Líneas
+        </Text>
+
+        <Text color='white' fontWeight={'bold'} fontSize='5xl' marginTop='2.5vh' marginLeft='2.5vh'>
+          Modo de juego
+        </Text>
+
+        <Text color='white' fontWeight={'bold'} fontSize='5xl' marginTop='2.5vh' marginLeft='2.5vh'>
+          Tu presentación (opcional)
+        </Text>
+    </Flex>
+
+        <Flex flex="1" justifyContent={'center'}>
         {
             currentStep == 1 && <RegisterStep1 setCurrentStep={setCurrentStep}/>
         }

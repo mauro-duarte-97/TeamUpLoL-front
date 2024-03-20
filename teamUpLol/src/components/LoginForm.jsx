@@ -42,18 +42,22 @@ function LoginForm ({ onLogin }) {
         <Box mt='5vh'>
             <Text color={'black'} fontSize='3xl'>Login</Text>
             <Flex mb='3vh' direction={'column'} mt='2vh' justifyContent={'space-between'} height={'13vh'}>
+
               <FormControl>
                 <FormLabel color={'black'} >Email</FormLabel>
                 <Input color={'black'} value={username} onChange={(e) => setUsername(e.target.value)}  type='email' required/>
               </FormControl>
+              
               {/* <Alert status='error' py={'1.5vh'} mb='1vh'>
                 <AlertIcon />
                 <AlertTitle color={'black'}>La contraseña debe tener al menos 8 caracteres y 1 numero con una mayuscula</AlertTitle>
               </Alert> */}
+
               <FormControl>
                 <FormLabel color={'black'}>Contraseña</FormLabel>
                 <Input color={'black'} value={password} onChange={(e) => setPassword(e.target.value)}  type='password' required/>  
               </FormControl>
+
             </Flex>
         </Box>
 
