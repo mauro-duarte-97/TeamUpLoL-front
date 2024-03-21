@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
-import {Flex, Text } from '@chakra-ui/react'
-import RegisterStep1 from '../components/registerSteps/Step1'
+import {Flex, Text } from '@chakra-ui/react';
+import RegisterStep1 from '../components/registerSteps/Step1';
 import RegisterStep2 from '../components/registerSteps/Step2';
+import RegisterStep3 from '../components/registerSteps/Step3';
 import axios from 'axios';
 
 export default function RegisterPage() {
@@ -21,7 +23,8 @@ export default function RegisterPage() {
 
   const response = await axios.post(url, body);
   console.log('el player es: ',response.data); 
-  console.log('el status de la response es: ',response.status); 
+  console.log('el status de la response es: ',response.status);
+
   if(response.status == 200){
     console.log("Inicio de sesión exitoso");
     window.location.href = '/home';
@@ -38,7 +41,7 @@ export default function RegisterPage() {
     <>
     {/* Columna izquierda con la foto */}
 
-      <Flex>
+    <Flex>
 
       <Flex
         flex="1"
@@ -51,11 +54,10 @@ export default function RegisterPage() {
         flexDirection="column">
         
         <Flex justifyContent={'flex-start'}>
-        <Text color='white' fontWeight={'bold'} fontSize='6xl' marginTop='2vh' marginLeft='1.5vh' padding='1.5vh' >
-          TeamUp LoL
-        </Text>
+          <Text color='white' fontWeight={'bold'} fontSize='6xl' marginTop='2vh' marginLeft='1.5vh' padding='1.5vh' >
+            TeamUp LoL
+          </Text>
         </Flex>
-        
 
         <Text color='white' fontWeight={'bold'} fontSize='5xl' marginTop='20vh' marginLeft='2.5vh' padding='2.5vh'>
           Información Básica
@@ -76,16 +78,28 @@ export default function RegisterPage() {
         <Text color='white' fontWeight={'bold'} fontSize='5xl' marginTop='2.5vh' marginLeft='2.5vh'>
           Tu presentación (opcional)
         </Text>
-    </Flex>
+      </Flex>
 
-        <Flex flex="1" justifyContent={'center'}>
-        {
-            currentStep == 1 && <RegisterStep1 setCurrentStep={setCurrentStep}/>
-        }
-        {
-            currentStep == 2 && <RegisterStep2 setCurrentStep={setCurrentStep}/>
-        }
-        </Flex>
+      <Flex flex="1" justifyContent={'center'}>
+      {
+          currentStep == 1 && <RegisterStep1 setCurrentStep={setCurrentStep}/>
+      },
+
+      {
+          currentStep == 2 && <RegisterStep2 setCurrentStep={setCurrentStep}/>
+      },
+
+              {
+          currentStep == 3 && <RegisterStep3 setCurrentStep={setCurrentStep}/>
+      },
+
+              {
+          // currentStep == 4 && <RegisterStep4 setCurrentStep={setCurrentStep}/>
+      }
+              {
+          // currentStep == 5 && <RegisterStep5 setCurrentStep={setCurrentStep}/>
+      }
+      </Flex>
     
     </Flex>
     </>

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Box, Button, Flex, FormControl, FormLabel, Input, Text } from '@chakra-ui/react'
 import React from 'react'
 import { SubmitButton } from '../Button'
@@ -5,7 +6,10 @@ import { SubmitButton } from '../Button'
 import axios from 'axios';
 
 
-export default function RegisterStep1() {
+export default function RegisterStep1({setCurrentStep}) {
+    const handleCLickGoBack = () => {
+        setCurrentStep(1) //LOGIN
+    }
     const [username, setUsername] = React.useState('');
     const [email, setEmail] = React.useState('');
     const [edad, setEdad] = React.useState('');
@@ -49,7 +53,6 @@ export default function RegisterStep1() {
         <Flex mt='5vh' direction={'column'}>
         
             <Box>
-                
                 <Text color={'black'} fontSize='6xl'>Register</Text>
                 <Text color={'black'} fontSize='4xl'>Step 1 - Basic Information</Text>
             </Box>
@@ -98,7 +101,7 @@ export default function RegisterStep1() {
 
         <Box>
 
-            <SubmitButton w='100%'>
+            <SubmitButton w='100%' onClick={setCurrentStep(2)}>
             <Text>Continue</Text>
             </SubmitButton>
 
