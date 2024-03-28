@@ -1,11 +1,9 @@
 /* eslint-disable no-unused-vars */
 import { Box, Button, Container, Flex, FormControl, Text} from '@chakra-ui/react'
 import React, { useState, useEffect, useRef } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import { SubmitButton } from '../Button'
 import axios from 'axios';
-import useEmblaCarousel from 'embla-carousel-react';
 import Carrusel from './ComponentTester';
 
 import HierroLogo from '../../../public/HierroLogo2.webp';
@@ -25,7 +23,7 @@ import ChallengerLogo from '../../../public/ChallengerLogo4.png';
 export default function RegisterStep2({onNextStep, onPreviousStep}) {
 
     const handleCLickGoBack = () => {
-      onPreviousStep
+      onPreviousStep()
     }
 
     const items = [
@@ -44,13 +42,15 @@ export default function RegisterStep2({onNextStep, onPreviousStep}) {
 
     return (
         <form> 
-          <Button mt={'2vh'} ml={'0'} justifySelf={'flex-start'} onClick={handleCLickGoBack}>← Step 1</Button>
+          <Button mt={'2vh'} ml={'0'} justifySelf={'flex-start'} onClick={handleCLickGoBack}  variant='link'>
+            ← Step 1
+          </Button>
           <Box backgroundColor={'Blue'} h={"100vh"} w={"100vh"} direction={'column'}>
           <Flex mt='5vh' direction={'column'} backgroundColor={'pink'} justifyContent= {'center'} w={'100%'}>
           
             <Flex  direction={'column'}>
-                <Text color={'black'} fontSize='6xl'>Register</Text>
-                <Text color={'black'} fontSize='4xl'>Step 2 - Division</Text>
+                <Text color={'black'} fontSize='4xl'>Register</Text>
+                <Text color={'black'} fontSize='2xl'>Step 2 - Division</Text>
             </Flex>
               
             <FormControl direction={'column'}>
@@ -78,6 +78,7 @@ export default function RegisterStep2({onNextStep, onPreviousStep}) {
     );
 }
 
+// Esto pasarlo a chakra !!
 const styles = {
   container: {
     width: '100%', // Usa el ancho completo del contenedor

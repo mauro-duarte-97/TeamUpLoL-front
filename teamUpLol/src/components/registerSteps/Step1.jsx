@@ -4,11 +4,14 @@ import React from 'react'
 import { SubmitButton } from '../Button'
 // eslint-disable-next-line no-unused-vars
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 
 export default function RegisterStep1({onNextStep}) {
+    const navigate = useNavigate();
     const handleCLickGoBack = () => {
         // setCurrentStep(1) //LOGIN
+        navigate('/login')
     }
     const [username, setUsername] = React.useState('');
     const [email, setEmail] = React.useState('');
@@ -49,12 +52,12 @@ export default function RegisterStep1({onNextStep}) {
 
   return (// onSubmit={handleLogin}>
     <form> 
-        <Button mt={'2vh'} ml={'0'} justifySelf={'flex-start'}>← Go Back</Button>
+        <Button mt={'2vh'} ml={'0'} justifySelf={'flex-start'} variant='link' onClick={handleCLickGoBack}>← Go Back</Button>
         <Flex mt='5vh' direction={'column'}>
         
             <Box>
-                <Text color={'black'} fontSize='6xl'>Register</Text>
-                <Text color={'black'} fontSize='4xl'>Step 1 - Basic Information</Text>
+                <Text color={'black'} fontSize='4xl'>Register</Text>
+                <Text color={'black'} fontSize='2xl'>Step 1 - Basic Information</Text>
             </Box>
             
 

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import {Flex, Text, Box } from '@chakra-ui/react';
+import {Flex, Text, Box, Stepper, Step, StepIndicator, StepStatus, StepIcon, StepNumber, StepSeparator, StepTitle, StepDescription, useSteps } from '@chakra-ui/react';
 import RegisterStep1 from '../components/registerSteps/Step1';
 import RegisterStep2 from '../components/registerSteps/Step2';
 import RegisterStep3 from '../components/registerSteps/Step3';
@@ -8,6 +8,13 @@ import axios from 'axios';
 
 export default function RegisterPage() {
   const [currentStep, setCurrentStep] = React.useState(1);
+  const steps = [
+    { title: 'Basic Information'},
+    { title: 'Division'},
+    { title: 'Lanes'},
+    { title: 'Gamemodes'},
+    { title: 'Your Presentation'},
+  ]  
 
   const handleNextStep = () => {
     setCurrentStep(currentStep + 1);
@@ -59,34 +66,35 @@ export default function RegisterPage() {
         backgroundSize={'cover'}
         backgroundPosition={'cover'}
         justifyContent={'flex-start'}
-        flexDirection="column">
-        <Box>
+        flexDirection="column"
+      >
+        <Box flex={1} backgroundColor={'rgba(0,0,0,0.6)'}>
+          <Flex height={'65vh'} flexDirection={'column'} justifyContent={'space-between'}  marginTop='2vh' marginLeft='1.5vh' padding='1.5vh'>
+            <Text color='white' fontWeight={'bold'} fontSize='6xl' textAlign={'left'} >
+              TeamUp LoL
+            </Text>
+            <Stepper size='lg' ml='5vh' index={currentStep} orientation='vertical' height='50vh' gap='0'>
+              {steps.map((step, index) => (
+                <Step key={index}>
+                  <StepIndicator>
+                    <StepStatus
+                      complete={<StepIcon />}
+                      incomplete={<StepNumber />}
+                      active={<StepNumber />}
+                    />
+                  </StepIndicator>
 
-        <Flex justifyContent={'flex-start'}>
-          <Text color='white' fontWeight={'bold'} fontSize='6xl' marginTop='2vh' marginLeft='1.5vh' padding='1.5vh' >
-            TeamUp LoL
-          </Text>
-        </Flex>
+                  <Box flexShrink='0'>
+                    <StepTitle>{step.title}</StepTitle>
+                    <StepDescription>{step.description}</StepDescription>
+                  </Box>
 
-        <Text color='white' fontWeight={'bold'} fontSize='5xl' marginTop='20vh' marginLeft='2.5vh' padding='2.5vh'>
-          Información Básica
-        </Text>
-
-        <Text color='white' fontWeight={'bold'} fontSize='5xl' marginTop='2.5vh' marginLeft='2.5vh'>
-          División
-        </Text>
-
-        <Text color='white' fontWeight={'bold'} fontSize='5xl' marginTop='2.5vh' marginLeft='2.5vh'>
-          Líneas
-        </Text>
-
-        <Text color='white' fontWeight={'bold'} fontSize='5xl' marginTop='2.5vh' marginLeft='2.5vh'>
-          Modo de juego
-        </Text>
-
-        <Text color='white' fontWeight={'bold'} fontSize='5xl' marginTop='2.5vh' marginLeft='2.5vh'>
-          Tu presentación (opcional)
-        </Text>
+                  <StepSeparator />
+                </Step>
+              ))
+              }
+            </Stepper>
+          </Flex>
         </Box>
       </Flex>
 
