@@ -6,9 +6,9 @@ import { SubmitButton } from '../Button'
 import axios from 'axios';
 
 
-export default function RegisterStep1({setCurrentStep}) {
+export default function RegisterStep1({onNextStep}) {
     const handleCLickGoBack = () => {
-        setCurrentStep(1) //LOGIN
+        // setCurrentStep(1) //LOGIN
     }
     const [username, setUsername] = React.useState('');
     const [email, setEmail] = React.useState('');
@@ -101,7 +101,7 @@ export default function RegisterStep1({setCurrentStep}) {
 
         <Box>
 
-            <SubmitButton w='100%' onClick={setCurrentStep(2)}>
+            <SubmitButton w='100%' onClick={onNextStep}>
             <Text>Continue</Text>
             </SubmitButton>
 

@@ -5,10 +5,10 @@ import { SubmitButton } from '../Button'
 import axios from 'axios';
 
 
-export default function RegisterStep3({setCurrentStep}) {
+export default function RegisterStep3({onNextStep, onPreviousStep}) {
     // eslint-disable-next-line no-unused-vars
     const handleCLickGoBack = () => {
-        setCurrentStep(1)
+      onPreviousStep
     }
 
 
@@ -31,7 +31,7 @@ export default function RegisterStep3({setCurrentStep}) {
 
     return (// onSubmit={handleLogin}>
       <form> 
-          <Button mt={'2vh'} ml={'0'} justifySelf={'flex-start'} onClick={setCurrentStep(2)}>← Step 2</Button>
+          <Button mt={'2vh'} ml={'0'} justifySelf={'flex-start'} onClick={handleCLickGoBack}>← Step 2</Button>
           <Flex mt='5vh' direction={'column'}>
           
               <Box>
@@ -54,7 +54,7 @@ export default function RegisterStep3({setCurrentStep}) {
 
           <Box>
 
-              <SubmitButton w='100%'>
+              <SubmitButton w={'20vh'} onClick={onNextStep}>
               <Text>Continue</Text>
               </SubmitButton>
 

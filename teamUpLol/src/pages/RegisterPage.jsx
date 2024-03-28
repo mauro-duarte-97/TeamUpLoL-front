@@ -1,13 +1,21 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import {Flex, Text } from '@chakra-ui/react';
+import {Flex, Text, Box } from '@chakra-ui/react';
 import RegisterStep1 from '../components/registerSteps/Step1';
 import RegisterStep2 from '../components/registerSteps/Step2';
 import RegisterStep3 from '../components/registerSteps/Step3';
 import axios from 'axios';
 
 export default function RegisterPage() {
-  const [currentStep, setCurrentStep] = React.useState(1)
+  const [currentStep, setCurrentStep] = React.useState(1);
+
+  const handleNextStep = () => {
+    setCurrentStep(currentStep + 1);
+  };
+
+  const handlePreviousStep = () => {
+    setCurrentStep(currentStep - 1);
+  };
 
   const onRegister = async (basicInfo, division, lanes, gameMode, presentation) => {
   
@@ -44,7 +52,7 @@ export default function RegisterPage() {
     <Flex>
 
       <Flex
-        flex="1"
+        flex= "1"
         height="100vh"
         width="200vh"
         backgroundImage={'./Register2.jpg'}
@@ -52,7 +60,8 @@ export default function RegisterPage() {
         backgroundPosition={'cover'}
         justifyContent={'flex-start'}
         flexDirection="column">
-        
+        <Box>
+
         <Flex justifyContent={'flex-start'}>
           <Text color='white' fontWeight={'bold'} fontSize='6xl' marginTop='2vh' marginLeft='1.5vh' padding='1.5vh' >
             TeamUp LoL
@@ -78,10 +87,11 @@ export default function RegisterPage() {
         <Text color='white' fontWeight={'bold'} fontSize='5xl' marginTop='2.5vh' marginLeft='2.5vh'>
           Tu presentación (opcional)
         </Text>
+        </Box>
       </Flex>
 
       <Flex flex="1" justifyContent={'center'}>
-      {
+      {/* {
           currentStep == 1 && <RegisterStep1 setCurrentStep={setCurrentStep}/>
       },
 
@@ -94,11 +104,16 @@ export default function RegisterPage() {
       },
 
               {
-          // currentStep == 4 && <RegisterStep4 setCurrentStep={setCurrentStep}/>
+           currentStep == 4 && <RegisterStep4 setCurrentStep={setCurrentStep}/>
       }
               {
-          // currentStep == 5 && <RegisterStep5 setCurrentStep={setCurrentStep}/>
-      }
+           currentStep == 5 && <RegisterStep5 setCurrentStep={setCurrentStep}/>
+      } */}
+
+        {currentStep === 1 && <RegisterStep1 onNextStep={handleNextStep} />}
+        {currentStep === 2 && <RegisterStep2 onNextStep={handleNextStep} onPreviousStep={handlePreviousStep} />}
+        {currentStep === 3 && <RegisterStep3 onNextStep={handleNextStep} onPreviousStep={handlePreviousStep} />}
+
       </Flex>
     
     </Flex>
